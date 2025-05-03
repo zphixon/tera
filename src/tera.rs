@@ -500,6 +500,11 @@ impl Tera {
         self.templates.keys().map(|s| s.as_str())
     }
 
+    /// Returns whether the template with the given name has been registered.
+    pub fn has_template(&self, template_name: &str) -> bool {
+        self.templates.contains_key(template_name)
+    }
+
     /// Add a single template to the Tera instance.
     ///
     /// This will error if the inheritance chain can't be built, such as adding a child
